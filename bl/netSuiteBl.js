@@ -31,7 +31,9 @@ function downloadFileFromNetSuite(file) {
 
 function uploadFileToNetSuite(file) {
     var fileContent = fs.readFileSync(file.fsPath, 'utf8');
-
+    /*
+    ** If file is of typescript then compile first
+    */
     if(file.fsPath.includes('.ts'))
     {
         vscode.window.showInformationMessage('Compiling JS');
