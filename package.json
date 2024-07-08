@@ -1,11 +1,11 @@
 {
   "name": "netsuite-upload",
-  "displayName": "NetSuite Upload",
-  "description": "Upload and download NetSuite SuiteScript files and folders.",
+  "displayName": "NetSuite Upload TS Compatible",
+  "description": "Upload and download NetSuite SuiteScript files and folders with TS compilation.",
   "version": "1.2.4",
-  "publisher": "nsupload-org",
+  "publisher": "htaymoor",
   "engines": {
-    "vscode": "^1.22.2"
+    "vscode": "^1.22."
   },
   "categories": [
     "Other"

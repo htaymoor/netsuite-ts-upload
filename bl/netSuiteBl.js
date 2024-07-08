@@ -32,6 +32,26 @@ function downloadFileFromNetSuite(file) {
 function uploadFileToNetSuite(file) {
     var fileContent = fs.readFileSync(file.fsPath, 'utf8');
 
+    if(file.fsPath.includes('.ts'))
+    {
+        vscode.window.showInformationMessage('Compiling JS');
+        exec('"tsc" --module amd '+file.fsPath, (err, stdout, stderr) => {
+            if(err)
+            {
+                vscode.window.showInformationMessage('errors occurred while compiling the typescript');
+            }
+            if(stderr)
+            {
+                vscode.window.showErrorMessage('stderr: ' + stderr)
+            }
+            else
+            {
+                vscode.window.showInformationMessage('JS compiled successfully!')
+            }
+            // vscode.window.showInformationMessage('stdout: ' + stdout)
+        })
+    }
+
     nsRestClient.postFile(file, fileContent, function (err, res) {
         if (hasNetSuiteError('ERROR uploading file.', err, res)) return;
 
